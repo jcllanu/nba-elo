@@ -31,7 +31,7 @@ def load_players():
     seconds = ((df_players['numMinutes'] - minutes) * 100).round()
     df_players['minutes']= minutes+seconds/60
     players = df_players['fullName'].unique()
-    df_players = df_players[['game_date','fullName','player_team', 'opponent_team', 'minutes', 'gameId']]
+    df_players = df_players[['game_date','fullName','player_team', 'opponent_team', 'minutes', 'gameId', 'gameType']]
     return df_players, sorted_dates, players
 
 def save(last_date, elo_history, last_ELO, highest_ELO, team_ELO, opponent_team_ELO):
@@ -245,7 +245,7 @@ def get_yearly_quarterly_monthly_graphs(mode, df, title):
     df_active_players_year_avg.dropna(how='all', inplace=True)
     bcr.bar_chart_race(
         df=df_active_players_year_avg.fillna(0),
-        filename='outputs\yearly_' + mode + '_'+datetime.datetime.now().strftime('%Y_%m_%d_%H_%M_%S')+'.mp4',      
+        filename='outputs\\yearly_' + mode + '_'+datetime.datetime.now().strftime('%Y_%m_%d_%H_%M_%S')+'.mp4',      
         orientation='h',               # horizontal bars
         sort='desc',
         n_bars=15,
@@ -266,7 +266,7 @@ def get_yearly_quarterly_monthly_graphs(mode, df, title):
     df_active_players_quarter_avg.dropna(how='all', inplace=True)
     bcr.bar_chart_race(
         df=df_active_players_quarter_avg.fillna(0),
-        filename='outputs\quarterly_' + mode + '_'+datetime.datetime.now().strftime('%Y_%m_%d_%H_%M_%S')+'.mp4',      
+        filename='outputs\\quarterly_' + mode + '_'+datetime.datetime.now().strftime('%Y_%m_%d_%H_%M_%S')+'.mp4',      
         orientation='h',               # horizontal bars
         sort='desc',
         n_bars=15,
@@ -287,7 +287,7 @@ def get_yearly_quarterly_monthly_graphs(mode, df, title):
     df_active_players_month_avg.dropna(how='all', inplace=True)
     bcr.bar_chart_race(
         df=df_active_players_month_avg.fillna(0),
-        filename='outputs\monthly_' + mode + '_'+datetime.datetime.now().strftime('%Y_%m_%d_%H_%M_%S')+'.mp4',      
+        filename='outputs\\monthly_' + mode + '_'+datetime.datetime.now().strftime('%Y_%m_%d_%H_%M_%S')+'.mp4',      
         orientation='h',               # horizontal bars
         sort='desc',
         n_bars=15,
@@ -360,8 +360,12 @@ def elo_rating_active_players(elo_history_df, highest_elo_df, df_players):
 
     # Filter the dates when the player is active
     elo_active_filtered_df = df_active_filtered[(df_active_filtered['min']<=df_active_filtered['game_date'])&(df_active_filtered['game_date']<=df_active_filtered['max'])][['game_date','fullName','ELO']]
+
+    
+    
     # Pivot the table 
     df_active_players_pivot = elo_active_filtered_df.pivot(index='game_date', columns='fullName', values='ELO')
+
 
     get_yearly_quarterly_monthly_graphs('active', df_active_players_pivot, 'Active NBA players')
 
@@ -379,7 +383,9 @@ def best_players_analysis(elo_history_df, team_elo_df, opponent_elo_df):
                         'Anthony Davis', 'Russell Westbrook', 'James Harden', 'Steve Nash', 'John Stockton', 'Walt Frazier',
                         'Bill Russell', 'Bob McAdoo', 'Bill Walton', 'Wes Unseld', 'Lenny Wilkens', 'Jerry West', 'Bill Sharman',
                         'Dwight Howard', 'Tracy McGrady', 'Vince Carter', 'Tony Parker', 'Pau Gasol', 'Kyrie Irving', 'Klay Thompson',
-                        'Dikembe Mutombo', 'Yao Ming', 'Vince Carter', 'Vlade Divac', 'Manu Ginobili']
+                        'Dikembe Mutombo', 'Yao Ming', 'Vlade Divac', 'Manu Ginobili', 'David Robinson', 'Nikola Jokic', 'Oscar Robertson',
+                        'Gary Payton', 'Isiah Thomas', 'Jrue Holiday', 'Luka Doncic', 'Shai Gilgeous-Alexander', 'Chauncey Billups',
+                        'Jimmy Butler', 'Andre Iguodala', ]
 
     elo_history_df = elo_history_df[selected_players]
     team_elo_df = team_elo_df[selected_players]
@@ -421,7 +427,42 @@ def best_players_analysis(elo_history_df, team_elo_df, opponent_elo_df):
     on=['fullName', 'game_date'],
     how='left'
     )
-    return df_merged2[(~df_merged2['ELO_team'].isnull()) & (~df_merged2['ELO_team'].isna())]
+    df_filtered = df_merged2[(~df_merged2['ELO_team'].isnull()) & (~df_merged2['ELO_team'].isna())]
+    df_sorted = df_filtered.sort_values(["fullName", "game_date"])
+    df_sorted["game_date"] = pd.to_datetime(df_sorted["game_date"])
+    df_sorted["ELO_previous_game"] = df_sorted.groupby("fullName")["ELO"].shift(1)
+    df_sorted["ELO_previous_game"] = df_sorted["ELO_previous_game"].fillna(1000)
+    df_sorted["ELO_change"] = df_sorted["ELO"]-df_sorted["ELO_previous_game"]
+    df_sorted["debut_date"] = df_sorted.groupby("fullName")["game_date"].transform("min")
+    df_sorted["debut_date"] = pd.to_datetime(df_sorted["debut_date"])
+    df_sorted["days_since_debut"] = (df_sorted["game_date"] - df_sorted["debut_date"]).dt.days
+    df_sorted["team_ELO_difference"] = df_sorted["ELO_team"]-df_sorted["ELO_opponent"]
+    df_sorted['game_result'] = np.select(
+        [
+            df_sorted["ELO"] == df_sorted["ELO_previous_game"],
+            df_sorted["ELO"] > df_sorted["ELO_previous_game"],
+            df_sorted["ELO"] < df_sorted["ELO_previous_game"],
+        ],
+        ["NP", "W", "L"], default="NP"
+    )
+    df_sorted['win_probability'] = 1 / (1 + np.power(10, -df_sorted["team_ELO_difference"] / 400))
+
+    df_players, _, _ =load_players()
+    df_players["game_date"] = pd.to_datetime(df_players["game_date"])
+
+    return pd.merge(df_sorted, df_players[['fullName', 'game_date', 'gameType','minutes']], on = ['fullName', 'game_date'], how = 'left')
+
+
+
+    
+
+
+
+
+
+
+
+    
 
 def load_files():
     save_dir = 'data'
@@ -455,33 +496,60 @@ def load_files():
         opponent_team_player_ELO = {player: opponent_team_player_ELO_df[player].tolist() for player in opponent_team_player_ELO_df.columns}
 
         return elo_history, last_ELO, highest_ELO, team_player_ELO, opponent_team_player_ELO
+    
+def average_elo_analysis(elo_history_df, team_elo_df):
+
+    # Unpivot table (3 columns): date, player name and ELO (of that player in that date)
+    df_player_unpivot = pd.melt(
+    elo_history_df.reset_index(),
+    id_vars=['game_date'],
+    var_name='fullName',
+    value_name='ELO'
+    )
+    # Unpivot table (3 columns): date, player name and ELO (of that player in that date)
+    df_team_unpivot = pd.melt(
+    team_elo_df.reset_index(),
+    id_vars=['game_date'],
+    var_name='fullName',
+    value_name='ELO_team'
+    )
+
+    df_merged = pd.merge(
+    df_team_unpivot,
+    df_player_unpivot,
+    on=['fullName', 'game_date'],
+    how='left'
+    )
+    df = df_merged[(~df_merged['ELO_team'].isnull()) & (~df_merged['ELO_team'].isna())][['game_date','fullName','ELO']]
+    df_mean_elo = df.groupby('fullName')['ELO'].mean().reset_index().sort_values('ELO', ascending=False)
+    df_mean_elo.to_excel(os.path.join("outputs", f"mean_elo.xlsx"), index=False)
 
 df_games = load_games()
 df_players, sorted_dates, players = load_players()
-# pd.DataFrame(sorted_dates).to_excel('dates.xlsx')
-# df_players[df_players['gameId'].isin([48400401,48400402,48400403,48400404,48400405,48400406])].to_excel('Final.xlsx')
-# elo_history, last_ELO, highest_ELO, team_player_ELO, opponent_team_player_ELO = load_files()
-# # elo_history, last_ELO, highest_ELO, team_player_ELO, opponent_team_player_ELO = elo_computation(df_games, df_players, sorted_dates, players)
+elo_history, last_ELO, highest_ELO, team_player_ELO, opponent_team_player_ELO = load_files()
+# elo_history, last_ELO, highest_ELO, team_player_ELO, opponent_team_player_ELO = elo_computation(df_games, df_players, sorted_dates, players)
 
-# elo_history_df = pd.DataFrame.from_dict(elo_history, orient='index').transpose()
-# elo_history_df['game_date']=[datetime.date(1946,11,25)]+sorted_dates
-# elo_history_df.set_index('game_date', inplace=True)
+elo_history_df = pd.DataFrame.from_dict(elo_history, orient='index').transpose()
+elo_history_df['game_date']=[datetime.date(1946,11,25)]+sorted_dates
+elo_history_df.set_index('game_date', inplace=True)
 
+ 
 # print(elo_history_df)
-# team_player_ELO_df = pd.DataFrame.from_dict(team_player_ELO, orient='index').transpose()
-# team_player_ELO_df['game_date']=[datetime.date(1946,11,25)]+sorted_dates
-# team_player_ELO_df.set_index('game_date', inplace=True)
+team_player_ELO_df = pd.DataFrame.from_dict(team_player_ELO, orient='index').transpose()
+team_player_ELO_df['game_date']=[datetime.date(1946,11,25)]+sorted_dates
+team_player_ELO_df.set_index('game_date', inplace=True)
 # print(team_player_ELO_df)
-# opponent_team_player_ELO_df = pd.DataFrame.from_dict(opponent_team_player_ELO, orient='index').transpose()
-# opponent_team_player_ELO_df['game_date']=[datetime.date(1946,11,25)]+sorted_dates
-# opponent_team_player_ELO_df.set_index('game_date', inplace=True)
+opponent_team_player_ELO_df = pd.DataFrame.from_dict(opponent_team_player_ELO, orient='index').transpose()
+opponent_team_player_ELO_df['game_date']=[datetime.date(1946,11,25)]+sorted_dates
+opponent_team_player_ELO_df.set_index('game_date', inplace=True)
 # print(opponent_team_player_ELO_df)
 
+# average_elo_analysis(elo_history_df, team_player_ELO_df)
 
 # highest_ELO_df = pd.DataFrame(list(highest_ELO.items()), columns=['fullName', 'highest_ELO'])
 # elo_rating_active_players(elo_history_df, highest_ELO_df, df_players)
 # elo_historic_rating_players(elo_history_df, highest_ELO_df)
 
-# best_players_df = best_players_analysis(elo_history_df, team_player_ELO_df, opponent_team_player_ELO_df)
+best_players_df = best_players_analysis(elo_history_df, team_player_ELO_df, opponent_team_player_ELO_df)
 
-# best_players_df.to_excel(os.path.join("outputs", f"best_players.xlsx"), index=False)
+best_players_df.to_excel(os.path.join("outputs", f"best_playersv2.xlsx"), index=False)

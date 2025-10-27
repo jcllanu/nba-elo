@@ -1,0 +1,36 @@
+//var rootTopic = 'http://gaia.fdi.ucm.es/aigaion2/index.php/gaiapub/topic/' 
+//var rootAuthor = 'http://gaia.fdi.ucm.es/aigaion2/index.php/gaiapub/author/' 
+
+/* Para desarrollo*/ 
+var rootTopic = '/aigaion/topic/' 
+var rootAuthor = '/aigaion/topic/'
+
+publicationsByTopic = function(topicId, element) {
+	/* Para desarrollo */
+	topicId = ""+topicId+".html"
+	$.ajax({
+	    url: rootTopic+topicId,
+        dataType: "html",
+	    success: function onSuccess(data) {
+	    	parsePub(data, element);
+	    }
+	});
+}
+
+publicationsByAuthor = function(authorId, element) {
+	/* Para desarrollo */
+	authorId = ""+authorId+".html"
+	$.ajax({
+	    url: rootAuthor+authorId,
+        dataType: "html",
+	    success: function onSuccess(data) {
+	    	parsePub(data, element);
+	    }
+	});
+}
+
+function parsePub(data, element) {
+	var pubs = new DOMParser().parseFromString(data, "text/html");
+	var pubList  = $('.publication_list', pubs);
+	$(element).append(pubList) ;	
+}
