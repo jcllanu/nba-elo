@@ -39,6 +39,9 @@ def load_games():
 
     # Keep only the relevant columns for analysis
     df_games=df_games[['game_date', 'home_team', 'away_team', 'homeScore', 'awayScore', 'gameType']]
+
+    # Filter out preseason games
+    df_games = df_games[df_games['gameType'] != 'Preseason']
     return df_games
 
 def load_players():
