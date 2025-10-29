@@ -1750,7 +1750,7 @@ form label.error {
 /* Header Style   ||-------------------*/
 .header {
     /*Color style: Blue Grey 700*/
-    background-color: rgb(69,90,100);
+    background-color: #17408b !important;
     position: absolute;
     text-align: center;
     top: 0px;
@@ -1763,6 +1763,14 @@ form label.error {
     -moz-transition: background-color 200ms ease-in-out 0s;
     -webkit-transition: background-color 200ms ease-in-out 0s;
 }
+
+
+.dark-bg {
+  background: linear-gradient(180deg, #17408b 0%, #c9082a 100%) !important;
+  background-size: 100% 200vh;
+  background-position: top;
+}
+
 
     .header.header-prepare {
         /*Color style: Blue Grey 700*/
@@ -3435,30 +3443,63 @@ ul.toc-content-inner li a:hover {
 #Logo_Colibri {
     width: 220px;
 }
+img {
+  max-width: 100%;
+  height: auto;
+}
 /* Three image containers (use 25% for four, and 50% for two, etc) */
 .column3 {
     float: left;
     width: 33.33%;
     padding: 5px;
+    max-width: 300px;
   }
   .column66 {
     float: left;
     width: 66.66%;
     padding: 5px;
+    max-width: 600px;
   }
   .column10 {
     float: left;
     width: 10%;
     padding: 5px;
+    max-width: 90px;
   }
   .column100 {
     float: left;
     width: 100%;
     padding: 5px;
+    max-width: 900px;
+  }
+  .column80 {
+    float: left;
+    width: 80%;
+    padding: 5px;
+    max-width: 720px;
+  }
+  .column45 {
+    float: left;
+    width: 45%;
+    padding: 5px;
+    max-width:405px;
+  }
+  .column90 {
+    float: left;
+    width: 90%;
+    padding: 5px;
+    max-width: 810px;
+  }
+  .column5{
+    float: left;
+    width: 5%;
+    padding: 5px;
+    max-width: 45px;
   }
   .column2 {
     float: left;
     width: 50%;
+    max-width: 450px;
     padding: 5px;
   }
   /* Clear floats after image containers */
@@ -3644,11 +3685,7 @@ table.stats-table tbody tr:hover {
 }
 .nba-playoffs td {
     border: 1px solid #333333;
-    padding: 10px 14px;
-    white-space: nowrap;      /* evita que el texto haga salto de línea */
-    overflow: hidden;         /* oculta el exceso de texto */
-    text-overflow: ellipsis;  /* muestra "..." si el contenido no cabe */
-    
+    padding: 10px 14px;    
 }
 
 .nba-playoffs thead th {

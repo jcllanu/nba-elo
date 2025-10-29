@@ -14,7 +14,11 @@
       ]><meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"
     /><![endif]-->
 
-    <link href="./index_files/style.css" rel="stylesheet" type="text/css" />
+    <link
+      href="./index_files/style.cleaned.css"
+      rel="stylesheet"
+      type="text/css"
+    />
     <link href="./index_files/bootstrap.css" rel="stylesheet" type="text/css" />
     <link href="./index_files/animate.css" rel="stylesheet" type="text/css" />
     <link
@@ -29,17 +33,26 @@
       async
       src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"
     ></script>
-    <link rel="icon" type="image/png" href="index_files/NBA logo.png" />
+    <link rel="icon" type="image/png" href="index_files/NBAELOicon.png" />
   </head>
   <body>
     <div id="page-wraper">
       <div class="wrapper">
         <div id="header" class="header header-fixed">
           <div class="header-inner">
-            <div class="nav-menu-icon">
-              <a><i class="fa fa-bars"></i></a>
+            <!-- 🔹 Logo a la izquierda -->
+            <div class="logo" style="float: left">
+              <a href="https://jcllanu.github.io/nba-elo/">
+                <img
+                  src="index_files/NBAELOlogo.png"
+                  alt="NBA ELO logo"
+                  style="height: 50px; width: auto"
+                />
+              </a>
             </div>
-            <div class="nav-menu singlepage-nav">
+
+            <!-- 🔹 Menú de navegación -->
+            <div class="nav-menu singlepage-nav" style="float: right">
               <ul class="nav-menu-inner">
                 <li>
                   <a
@@ -64,25 +77,23 @@
                   >
                 </li>
                 <li>
-                  <a href="https://jcllanu.github.io/nba-elo/#nbaelorankings">
-                    NBA ELO rankings</a
+                  <a href="https://jcllanu.github.io/nba-elo/#nbaelorankings"
+                    >NBA ELO rankings</a
                   >
                 </li>
                 <li>
-                  <a href="https://jcllanu.github.io/nba-elo/#biggestsurprises">
-                    Biggest surprises</a
+                  <a href="https://jcllanu.github.io/nba-elo/#biggestsurprises"
+                    >Biggest surprises</a
                   >
                 </li>
                 <li>
-                  <a
-                    href="https://jcllanu.github.io/nba-elo/#rankingbyposition"
-                  >
-                    Ranking by position</a
+                  <a href="https://jcllanu.github.io/nba-elo/#rankingbyposition"
+                    >Ranking by position</a
                   >
                 </li>
                 <li>
-                  <a href="https://jcllanu.github.io/nba-elo/#nbagoat">
-                    THE GOAT</a
+                  <a href="https://jcllanu.github.io/nba-elo/#nbagoat"
+                    >THE GOAT</a
                   >
                 </li>
                 <li>
@@ -90,6 +101,20 @@
                 </li>
               </ul>
             </div>
+
+            <!-- 🔹 Icono hamburguesa (si lo usas) -->
+            <div
+              class="nav-menu-icon"
+              style="float: right; margin-left: 10px; margin-top: 10px"
+            >
+              <img
+                src="index_files/menu.png"
+                alt="Menu"
+                style="height: 30px; width: auto"
+              />
+            </div>
+
+            <div style="clear: both"></div>
           </div>
         </div>
         <section
@@ -97,7 +122,6 @@
           class="intro-fullscreen"
           style="height: 932px; min-height: 500px"
         >
-          <div class="intro-media bg-image"></div>
           <div class="intro-caption-waper dark-bg">
             <div
               class="intro-full-height container"
@@ -105,9 +129,6 @@
             >
               <div class="intro-content">
                 <div class="intro-content-inner">
-                  <div class="img-square" id="NBA_logo">
-                    <img src="./index_files/NBA logo.png" alt="NBA logo" />
-                  </div>
                   <h1 class="intro-title mb-10" style="text-transform: none">
                     <span class="text-light"
                       >Rewriting the GOAT Debate: <br />The NBA Through the ELO
@@ -217,11 +238,7 @@
               >
                 <div class="column2" style="text-align: center">
                   <figure>
-                    <img
-                      src="./index_files/nbalegends.jpg"
-                      alt="NBA Legends"
-                      width="350"
-                    />
+                    <img src="./index_files/nbalegends.jpg" alt="NBA Legends" />
                     <figcaption>
                       <strong>Figure 1.-</strong> Icons of the NBA: Some of
                       basketball’s greatest legends in one frame.
@@ -279,13 +296,9 @@
                   justify-content: center; /* horizontal centering */
                 "
               >
-                <div class="column2" style="text-align: center">
+                <div class="column66" style="text-align: center">
                   <figure>
-                    <img
-                      src="./index_files/chess.jpeg"
-                      alt="Chess"
-                      width="500"
-                    />
+                    <img src="./index_files/chess.jpeg" alt="Chess" />
                     <figcaption>
                       <strong>Figure 2.-</strong> Chess Grandmaster Magnus
                       Carlsen, who has the highest peak ELO rating in chess
@@ -386,7 +399,7 @@
                   justify-content: center; /* horizontal centering */
                 "
               >
-                <div class="column3">
+                <div class="column45">
                   <table class="celtics">
                     <thead>
                       <tr>
@@ -438,7 +451,7 @@
                   with their ELO rating before the game.
                 </div>
                 <div class="column10"></div>
-                <div class="column3">
+                <div class="column45">
                   <table class="lakers">
                     <thead>
                       <tr>
@@ -513,12 +526,11 @@
                   justify-content: center; /* horizontal centering */
                 "
               >
-                <div class="column2" style="text-align: center">
+                <div class="column3" style="text-align: center">
                   <figure>
                     <img
                       src="./index_files/nbafinal1985.jpg"
                       alt="NBA Finals 1985"
-                      width="300"
                     />
                     <figcaption>
                       <strong>Figure 3.-</strong> Game 6 of the 1985 NBA Finals
@@ -528,6 +540,7 @@
                   </figure>
                 </div>
               </div>
+              <p class="max-width-900 large pb-30 text-justify"></p>
               <p class="max-width-900 large pb-30 text-justify">
                 Once we have defined the ratings of the two teams, we can
                 calculate the <strong>expected outcome</strong> \(E\) for a
@@ -646,14 +659,13 @@
                   justify-content: center; /* horizontal centering */
                 "
               >
-                <div class="column2" style="text-align: center">
+                <div class="column45" style="text-align: center">
                   <figure>
                     <img
                       src="./index_files/jordan63pointgame.jpg"
                       alt="Michael Jordan 63-point performance against Boston"
-                      width="500"
                     />
-                    <figcaption style="text-align: justify">
+                    <figcaption>
                       <strong>Figure 4.-</strong> Michael Jordan lost \(6.42\)
                       ELO points in his \(63\)-point performance against the
                       Boston Celtics in Game 2 of the 1986 Eastern Conference
@@ -666,14 +678,13 @@
                   </figure>
                 </div>
                 <div class="column10"></div>
-                <div class="column2" style="text-align: center">
+                <div class="column45" style="text-align: center">
                   <figure>
                     <img
                       src="./index_files/lebron51point.png"
                       alt="LeBron James 51-point performance against the Golden State Warriors"
-                      width="500"
                     />
-                    <figcaption style="text-align: justify">
+                    <figcaption>
                       <strong>Figure 5.-</strong> LeBron James lost \(15.29\)
                       ELO points in his \(51\)-point performance against the
                       Golden State Warriors in Game 1 of the 2018 NBA Finals
@@ -715,7 +726,7 @@
                   justify-content: center; /* horizontal centering */
                 "
               >
-                <div class="column2">
+                <div class="column66">
                   <table class="result-table">
                     <thead>
                       <tr>
@@ -749,14 +760,13 @@
                   justify-content: center; /* horizontal centering */
                 "
               >
-                <div class="column2" style="text-align: center">
+                <div class="column45" style="text-align: center">
                   <figure>
                     <img
                       src="./index_files/webeleive.jpg"
                       alt="We believe Warriors"
-                      width="350"
                     />
-                    <figcaption style="text-align: justify">
+                    <figcaption>
                       <strong>Figure 6.-</strong> In the First Round of the
                       Western Conference 2007 playoffs, the eighth seed Golden
                       State Warriors pulled off one of the biggest upsets in
@@ -771,14 +781,10 @@
                   </figure>
                 </div>
                 <div class="column10"></div>
-                <div class="column2" style="text-align: center">
+                <div class="column45" style="text-align: center">
                   <figure>
-                    <img
-                      src="./index_files/jazz.png"
-                      alt="Utah Jazz"
-                      width="350"
-                    />
-                    <figcaption style="text-align: justify">
+                    <img src="./index_files/jazz.png" alt="Utah Jazz" />
+                    <figcaption>
                       <strong>Figure 7.-</strong> On April 5, 1998, the Utah
                       Jazz played a regular-season home game against the
                       Vancouver Grizzlies. Utah were the clear favorites, with
@@ -817,9 +823,8 @@
                     <img
                       src="./index_files/netsvsbucks.jpg"
                       alt="Nets vs bucks"
-                      width="500"
                     />
-                    <figcaption style="text-align: justify">
+                    <figcaption>
                       <strong>Figure 8.-</strong> In Game 1 of the 2021 NBA
                       Eastern Conference Semifinals (June 5, 2021), the
                       Milwaukee Bucks faced the newly formed Big-3 of the
@@ -874,7 +879,7 @@
                   justify-content: center; /* horizontal centering */
                 "
               >
-                <div class="column66">
+                <div class="column80">
                   <table class="celtics">
                     <thead>
                       <tr>
@@ -965,7 +970,7 @@
                   justify-content: center; /* horizontal centering */
                 "
               >
-                <div class="column66">
+                <div class="column80">
                   <table class="lakers">
                     <thead>
                       <tr>
@@ -1154,7 +1159,7 @@
                   justify-content: center; /* horizontal centering */
                 "
               >
-                <div class="column3">
+                <div class="column45">
                   <table class="stats-table">
                     <thead>
                       <tr>
@@ -1292,7 +1297,8 @@
                     </tbody>
                   </table>
                 </div>
-                <div class="column3">
+                <div class="column5"></div>
+                <div class="column45">
                   <table class="stats-table">
                     <thead>
                       <tr>
@@ -1429,10 +1435,10 @@
                       </tr>
                     </tbody>
                   </table>
+                  <strong>Table 6.-</strong> Top 50 players ranked by the
+                  highest ELO rating achieved at any point in their careers.
                 </div>
               </div>
-              <strong>Table 6.-</strong> Top 50 players ranked by the highest
-              ELO rating achieved at any point in their careers.
 
               <p class="max-width-900 large pb-30 text-justify"></p>
               <div
@@ -1442,7 +1448,7 @@
                   justify-content: center; /* horizontal centering */
                 "
               >
-                <div class="column3">
+                <div class="column45">
                   <table class="stats-table">
                     <thead>
                       <tr>
@@ -1581,7 +1587,8 @@
                     </tbody>
                   </table>
                 </div>
-                <div class="column3">
+                <div class="column5"></div>
+                <div class="column45">
                   <table class="stats-table">
                     <thead>
                       <tr>
@@ -1718,16 +1725,15 @@
                       </tr>
                     </tbody>
                   </table>
+                  <strong>Table 7.-</strong> Top 50 players ranked by the
+                  average ELO rating achieved throughout their careers.
                 </div>
               </div>
-              <strong>Table 7.-</strong> Top 50 players ranked by the average
-              ELO rating achieved throughout their careers
+
               <p class="max-width-900 large pb-30 text-justify"></p>
               <div class="grid">
                 <div>
                   <iframe
-                    width="560"
-                    height="315"
                     src="https://www.youtube.com/embed/KajL2XAphsE?si=ZMldKMjo4JHpIDIN"
                     title="YouTube video player"
                     frameborder="0"
@@ -1742,8 +1748,6 @@
                 </div>
                 <div>
                   <iframe
-                    width="560"
-                    height="315"
                     src="https://www.youtube.com/embed/ddX2eJLBq1A?si=DxjhQBd0a1zb4wxG"
                     title="YouTube video player"
                     frameborder="0"
@@ -1758,8 +1762,6 @@
                 </div>
                 <div>
                   <iframe
-                    width="560"
-                    height="315"
                     src="https://www.youtube.com/embed/Id2VuXpR3_8?si=NgpZ2u7WdfG2qFig"
                     title="YouTube video player"
                     frameborder="0"
@@ -1774,8 +1776,6 @@
                 </div>
                 <div>
                   <iframe
-                    width="560"
-                    height="315"
                     src="https://www.youtube.com/embed/Id2VuXpR3_8?si=ZaiELizjWIzuU2OQ"
                     title="YouTube video player"
                     frameborder="0"
@@ -1790,8 +1790,6 @@
                 </div>
                 <div>
                   <iframe
-                    width="560"
-                    height="315"
                     src="https://www.youtube.com/embed/rsUITj1SA1g?si=n5MSH5JW2oo08ygK"
                     title="YouTube video player"
                     frameborder="0"
@@ -1806,8 +1804,6 @@
                 </div>
                 <div>
                   <iframe
-                    width="560"
-                    height="315"
                     src="https://www.youtube.com/embed/yID6MldtAjo?si=du5TTrINf4cwsKIU"
                     title="YouTube video player"
                     frameborder="0"
@@ -1822,8 +1818,6 @@
                 </div>
                 <div>
                   <iframe
-                    width="560"
-                    height="315"
                     src="https://www.youtube.com/embed/xLGt2ZZRqqg?si=oAM39hla6dbFDLH3"
                     title="YouTube video player"
                     frameborder="0"
@@ -1837,8 +1831,6 @@
                 </div>
                 <div>
                   <iframe
-                    width="560"
-                    height="315"
                     src="https://www.youtube.com/embed/ncks_3DxRW4"
                     title="YouTube video player"
                     frameborder="0"
@@ -1852,8 +1844,6 @@
                 </div>
                 <div>
                   <iframe
-                    width="560"
-                    height="315"
                     src="https://www.youtube.com/embed/cSbzepkHU78?si=FmTSRbi2u8sAgdck"
                     title="YouTube video player"
                     frameborder="0"
@@ -1986,9 +1976,9 @@
                   justify-content: center; /* horizontal centering */
                 "
               >
-                <div class="column100" style="text-align: center">
+                <div class="column3" style="text-align: center">
                   <figure>
-                    <img src="./index_files/kobe.jpg" alt="Kobe" width="300" />
+                    <img src="./index_files/kobe.jpg" alt="Kobe" />
                     <figcaption>
                       <strong>Figure 9.-</strong> Kobe Bryant signature dunk
                       against the New Jersey Nets.
@@ -2031,13 +2021,9 @@
                   justify-content: center; /* horizontal centering */
                 "
               >
-                <div class="column100" style="text-align: center">
+                <div class="column2" style="text-align: center">
                   <figure>
-                    <img
-                      src="./index_files/allen_iverson.jpg"
-                      alt="AI"
-                      width="500"
-                    />
+                    <img src="./index_files/allen_iverson.jpg" alt="AI" />
                     <figcaption>
                       <strong>Figure 10.-</strong> Allen Iverson during Game 1
                       of the 2001 NBA Finals against the Los Angeles Lakers.
@@ -2045,7 +2031,6 @@
                   </figure>
                 </div>
               </div>
-              <p class="max-width-900 large pb-30 text-justify"></p>
             </div>
           </div>
         </section>
@@ -2146,11 +2131,7 @@
               >
                 <div class="column100" style="text-align: center">
                   <figure>
-                    <img
-                      src="./index_files/elopointgurads.png"
-                      alt="ELO PGs"
-                      width="900"
-                    />
+                    <img src="./index_files/elopointgurads.png" alt="ELO PGs" />
                     <figcaption>
                       <strong>Figure 11.-</strong> ELO evolution for some of the
                       greatest point guards in NBA history.
@@ -2196,7 +2177,6 @@
                     <img
                       src="./index_files/eloshootinggurads.png"
                       alt="ELO SGs"
-                      width="900"
                     />
                     <figcaption>
                       <strong>Figure 12.-</strong> ELO evolution for some of the
@@ -2268,7 +2248,6 @@
                     <img
                       src="./index_files/elosmallforwards.png"
                       alt="ELO SFs"
-                      width="900"
                     />
                     <figcaption>
                       <strong>Figure 13.-</strong> ELO evolution for some of the
@@ -2316,7 +2295,6 @@
                     <img
                       src="./index_files/elopowerforwards.png"
                       alt="ELO PFs"
-                      width="900"
                     />
                     <figcaption>
                       <strong>Figure 14.-</strong> ELO evolution for some of the
@@ -2378,11 +2356,7 @@
               >
                 <div class="column100" style="text-align: center">
                   <figure>
-                    <img
-                      src="./index_files/elocenters.png"
-                      alt="ELO Cs"
-                      width="900"
-                    />
+                    <img src="./index_files/elocenters.png" alt="ELO Cs" />
                     <figcaption>
                       <strong>Figure 15.-</strong> ELO evolution for some of the
                       greatest centers in NBA history.
@@ -2426,17 +2400,15 @@
                   justify-content: center; /* horizontal centering */
                 "
               >
-                <div class="column100" style="text-align: center">
+                <div class="column80" style="text-align: center">
                   <figure>
                     <img
                       src="./index_files/ELO comparison.png"
                       alt="ELO Comparison"
-                      width="700"
                     />
                     <figcaption>
                       <strong>Figure 16.-</strong> ELO evolution for LeBron
                       James, Michael Jordan, Shaquille O’Neal, and Tim Duncan.
-                      <br />
                       The x-axis represents each player’s NBA seasons since
                       their debut, which allows a fair comparison across
                       different eras.
@@ -2456,55 +2428,67 @@
                 opponents in wins and losses, both in regular season and
                 playoffs.
               </p>
-              <table class="result-table">
-                <thead>
-                  <tr>
-                    <th class="center-col">Player</th>
-                    <th class="center-col">Regular Season Win %</th>
-                    <th class="center-col">Regular Season Losses</th>
-                    <th class="center-col">Avg ELO Diff in Losses</th>
-                    <th class="center-col">Regular Season Wins</th>
-                    <th class="center-col">Avg ELO Diff in Wins</th>
-                  </tr>
-                </thead>
 
-                <tbody>
-                  <tr>
-                    <td class="left-col">LeBron James</td>
-                    <td class="center-col">63.58%</td>
-                    <td class="center-col">602</td>
-                    <td class="center-col">61.72</td>
-                    <td class="center-col">1,051</td>
-                    <td class="center-col">133.63</td>
-                  </tr>
-                  <tr>
-                    <td class="left-col">Michael Jordan</td>
-                    <td class="center-col">65.86%</td>
-                    <td class="center-col">366</td>
-                    <td class="center-col">38.62</td>
-                    <td class="center-col">706</td>
-                    <td class="center-col">152.25</td>
-                  </tr>
-                  <tr>
-                    <td class="left-col">Shaquille O'Neal</td>
-                    <td class="center-col">67.34%</td>
-                    <td class="center-col">404</td>
-                    <td class="center-col">71.46</td>
-                    <td class="center-col">833</td>
-                    <td class="center-col">143.54</td>
-                  </tr>
-                  <tr>
-                    <td class="left-col">Tim Duncan</td>
-                    <td class="center-col">70.87%</td>
-                    <td class="center-col">420</td>
-                    <td class="center-col">101.55</td>
-                    <td class="center-col">1,022</td>
-                    <td class="center-col">154.01</td>
-                  </tr>
-                </tbody>
-              </table>
-              <strong>Table 8.- </strong> Regular Season ELO statistics for
-              LeBron James, Michael Jordan, Shaquille O'Neal, and Tim Duncan.
+              <div
+                class="row"
+                style="
+                  display: flex;
+                  justify-content: center; /* horizontal centering */
+                "
+              >
+                <div class="column90">
+                  <table class="result-table">
+                    <thead>
+                      <tr>
+                        <th class="center-col">Player</th>
+                        <th class="center-col">Regular Season Win %</th>
+                        <th class="center-col">Regular Season Losses</th>
+                        <th class="center-col">Avg ELO Diff in Losses</th>
+                        <th class="center-col">Regular Season Wins</th>
+                        <th class="center-col">Avg ELO Diff in Wins</th>
+                      </tr>
+                    </thead>
+
+                    <tbody>
+                      <tr>
+                        <td class="left-col">LeBron James</td>
+                        <td class="center-col">63.58%</td>
+                        <td class="center-col">602</td>
+                        <td class="center-col">61.72</td>
+                        <td class="center-col">1,051</td>
+                        <td class="center-col">133.63</td>
+                      </tr>
+                      <tr>
+                        <td class="left-col">Michael Jordan</td>
+                        <td class="center-col">65.86%</td>
+                        <td class="center-col">366</td>
+                        <td class="center-col">38.62</td>
+                        <td class="center-col">706</td>
+                        <td class="center-col">152.25</td>
+                      </tr>
+                      <tr>
+                        <td class="left-col">Shaquille O'Neal</td>
+                        <td class="center-col">67.34%</td>
+                        <td class="center-col">404</td>
+                        <td class="center-col">71.46</td>
+                        <td class="center-col">833</td>
+                        <td class="center-col">143.54</td>
+                      </tr>
+                      <tr>
+                        <td class="left-col">Tim Duncan</td>
+                        <td class="center-col">70.87%</td>
+                        <td class="center-col">420</td>
+                        <td class="center-col">101.55</td>
+                        <td class="center-col">1,022</td>
+                        <td class="center-col">154.01</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                  <strong>Table 8.- </strong> Regular Season ELO statistics for
+                  LeBron James, Michael Jordan, Shaquille O'Neal, and Tim
+                  Duncan.
+                </div>
+              </div>
               <p class="max-width-900 large pb-30 text-justify"></p>
               <p class="max-width-900 large pb-30 text-justify">
                 As can be seen, Tim Duncan holds the strongest regular season
@@ -2525,58 +2509,68 @@
                 the same statistics but now focused exclusively on playoff
                 performance.
               </p>
-              <table class="result-table">
-                <thead>
-                  <tr>
-                    <th class="center-col">Player</th>
-                    <th class="center-col">Playoff Win %</th>
-                    <th class="center-col">Playoff Losses</th>
-                    <th class="center-col">Avg ELO Diff in Losses</th>
-                    <th class="center-col">Playoff Wins</th>
-                    <th class="center-col">Avg ELO Diff in Wins</th>
-                  </tr>
-                </thead>
+              <div
+                class="row"
+                style="
+                  display: flex;
+                  justify-content: center; /* horizontal centering */
+                "
+              >
+                <div class="column90">
+                  <table class="result-table">
+                    <thead>
+                      <tr>
+                        <th class="center-col">Player</th>
+                        <th class="center-col">Playoff Win %</th>
+                        <th class="center-col">Playoff Losses</th>
+                        <th class="center-col">Avg ELO Diff in Losses</th>
+                        <th class="center-col">Playoff Wins</th>
+                        <th class="center-col">Avg ELO Diff in Wins</th>
+                      </tr>
+                    </thead>
 
-                <tbody>
-                  <tr>
-                    <td class="left-col">LeBron James</td>
-                    <td class="center-col">63.01%</td>
-                    <td class="center-col">108</td>
-                    <td class="center-col">4.01</td>
-                    <td class="center-col">184</td>
-                    <td class="center-col">76.94</td>
-                  </tr>
+                    <tbody>
+                      <tr>
+                        <td class="left-col">LeBron James</td>
+                        <td class="center-col">63.01%</td>
+                        <td class="center-col">108</td>
+                        <td class="center-col">4.01</td>
+                        <td class="center-col">184</td>
+                        <td class="center-col">76.94</td>
+                      </tr>
 
-                  <tr>
-                    <td class="left-col">Michael Jordan</td>
-                    <td class="center-col">66.48%</td>
-                    <td class="center-col">60</td>
-                    <td class="center-col">10.82</td>
-                    <td class="center-col">119</td>
-                    <td class="center-col">105.14</td>
-                  </tr>
+                      <tr>
+                        <td class="left-col">Michael Jordan</td>
+                        <td class="center-col">66.48%</td>
+                        <td class="center-col">60</td>
+                        <td class="center-col">10.82</td>
+                        <td class="center-col">119</td>
+                        <td class="center-col">105.14</td>
+                      </tr>
 
-                  <tr>
-                    <td class="left-col">Shaquille O'Neal</td>
-                    <td class="center-col">59.72%</td>
-                    <td class="center-col">87</td>
-                    <td class="center-col">15.72</td>
-                    <td class="center-col">129</td>
-                    <td class="center-col">85.31</td>
-                  </tr>
+                      <tr>
+                        <td class="left-col">Shaquille O'Neal</td>
+                        <td class="center-col">59.72%</td>
+                        <td class="center-col">87</td>
+                        <td class="center-col">15.72</td>
+                        <td class="center-col">129</td>
+                        <td class="center-col">85.31</td>
+                      </tr>
 
-                  <tr>
-                    <td class="left-col">Tim Duncan</td>
-                    <td class="center-col">62.55%</td>
-                    <td class="center-col">94</td>
-                    <td class="center-col">40.42</td>
-                    <td class="center-col">157</td>
-                    <td class="center-col">88.35</td>
-                  </tr>
-                </tbody>
-              </table>
-              <strong>Table 9.- </strong> Playoffs ELO statistics for LeBron
-              James, Michael Jordan, Shaquille O'Neal, and Tim Duncan.
+                      <tr>
+                        <td class="left-col">Tim Duncan</td>
+                        <td class="center-col">62.55%</td>
+                        <td class="center-col">94</td>
+                        <td class="center-col">40.42</td>
+                        <td class="center-col">157</td>
+                        <td class="center-col">88.35</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                  <strong>Table 9.- </strong> Playoffs ELO statistics for LeBron
+                  James, Michael Jordan, Shaquille O'Neal, and Tim Duncan.
+                </div>
+              </div>
               <p class="max-width-900 large pb-30 text-justify"></p>
               <p class="max-width-900 large pb-30 text-justify">
                 As can be seen, the situation changes quite a bit in the
@@ -2598,7 +2592,7 @@
                 series.
               </p>
               <div class="row" style="display: flex; justify-content: center">
-                <div class="column2">
+                <div class="column90">
                   <table class="nba-playoffs">
                     <thead>
                       <tr>
@@ -2813,21 +2807,6 @@
                         <td class="negative">-52.44</td>
                         <td>Lost in 5</td>
                       </tr>
-                    </tbody>
-                  </table>
-                </div>
-                <div class="column2">
-                  <table class="nba-playoffs">
-                    <thead>
-                      <tr>
-                        <th>Year</th>
-                        <th>Playoff Round</th>
-                        <th>Opponent</th>
-                        <th>ELO difference</th>
-                        <th>Series Result</th>
-                      </tr>
-                    </thead>
-                    <tbody>
                       <tr class="won">
                         <td class="year grey">2015</td>
                         <td>1st Round</td>
@@ -3012,11 +2991,12 @@
                       </tr>
                     </tbody>
                   </table>
+                  <strong>Table 10.-</strong> LeBron James playoff series
+                  results along with his team's ELO advantage at the beginning
+                  of the series (positive means that his team is favorite).
                 </div>
               </div>
-              <strong>Table 10.-</strong> LeBron James playoff series results
-              along with his team's ELO advantage at the beginning of the series
-              (positive means that his team is favorite)
+
               <p class="max-width-900 large pb-30 text-justify"></p>
               <p class="max-width-900 large pb-30 text-justify">
                 In the table above, it can be observed that LeBron James has
@@ -3054,7 +3034,7 @@
               </p>
 
               <div class="row" style="display: flex; justify-content: center">
-                <div class="column2">
+                <div class="column90">
                   <table class="nba-playoffs">
                     <thead>
                       <tr>
@@ -3227,21 +3207,7 @@
                         <td class="positive">161.54</td>
                         <td>Won in 5</td>
                       </tr>
-                    </tbody>
-                  </table>
-                </div>
-                <div class="column2">
-                  <table class="nba-playoffs">
-                    <thead>
-                      <tr>
-                        <th>Year</th>
-                        <th>Playoff Round</th>
-                        <th>Opponent</th>
-                        <th>ELO difference</th>
-                        <th>Series Result</th>
-                      </tr>
-                    </thead>
-                    <tbody>
+
                       <tr class="won">
                         <td class="year grey-light">2002</td>
                         <td>1st Round</td>
@@ -3398,11 +3364,11 @@
                       </tr>
                     </tbody>
                   </table>
+                  <strong>Table 11.-</strong> Shaquille O'Neal playoff series
+                  results along with his team's ELO advantage at the beginning
+                  of the series (positive means that his team is favorite).
                 </div>
               </div>
-              <strong>Table 11.-</strong> Shaquille O'Neal playoff series
-              results along with his team's ELO advantage at the beginning of
-              the series (positive means that his team is favorite)
 
               <p class="max-width-900 large pb-30 text-justify"></p>
               <p class="max-width-900 large pb-30 text-justify">
@@ -3438,7 +3404,7 @@
                 Now, let's address Tim Duncan's case.
               </p>
               <div class="row" style="display: flex; justify-content: center">
-                <div class="column2">
+                <div class="column90">
                   <table class="nba-playoffs">
                     <thead>
                       <tr>
@@ -3611,21 +3577,6 @@
                         <td class="positive">66.13</td>
                         <td>Lost in 7</td>
                       </tr>
-                    </tbody>
-                  </table>
-                </div>
-                <div class="column2">
-                  <table class="nba-playoffs">
-                    <thead>
-                      <tr>
-                        <th>Year</th>
-                        <th>Playoff Round</th>
-                        <th>Opponent</th>
-                        <th>ELO difference</th>
-                        <th>Series Result</th>
-                      </tr>
-                    </thead>
-                    <tbody>
                       <tr class="won">
                         <td class="year grey-light">2007</td>
                         <td>1st Round</td>
@@ -3796,11 +3747,11 @@
                       </tr>
                     </tbody>
                   </table>
+                  <strong>Table 12.-</strong> Tim Duncan playoff series results
+                  along with his team's ELO advantage at the beginning of the
+                  series (positive means that his team is favorite).
                 </div>
               </div>
-              <strong>Table 12.-</strong> Tim Duncan playoff series results
-              along with his team's ELO advantage at the beginning of the series
-              (positive means that his team is favorite)
 
               <p class="max-width-900 large pb-30 text-justify"></p>
               <p class="max-width-900 large pb-30 text-justify">
@@ -3850,7 +3801,7 @@
               </p>
 
               <div class="row" style="display: flex; justify-content: center">
-                <div class="column2">
+                <div class="column90">
                   <table class="nba-playoffs">
                     <thead>
                       <tr>
@@ -3995,21 +3946,7 @@
                         <td class="positive">48.77</td>
                         <td>Won in 6</td>
                       </tr>
-                    </tbody>
-                  </table>
-                </div>
-                <div class="column2">
-                  <table class="nba-playoffs">
-                    <thead>
-                      <tr>
-                        <th>Year</th>
-                        <th>Playoff Round</th>
-                        <th>Opponent</th>
-                        <th>ELO difference</th>
-                        <th>Series Result</th>
-                      </tr>
-                    </thead>
-                    <tbody>
+
                       <tr class="won">
                         <td class="year grey">1993</td>
                         <td>1st Round</td>
@@ -4142,11 +4079,12 @@
                       </tr>
                     </tbody>
                   </table>
+                  <strong>Table 13.-</strong> Michael Jordan playoff series
+                  results along with his team's ELO advantage at the beginning
+                  of the series (positive means that his team is favorite).
                 </div>
               </div>
-              <strong>Table 13.-</strong> Michael Jordan playoff series results
-              along with his team's ELO advantage at the beginning of the series
-              (positive means that his team is favorite)
+
               <p class="max-width-900 large pb-30 text-justify"></p>
               <p class="max-width-900 large pb-30 text-justify">
                 Michael Jordan played a total of \(37\) playoff series, winning
@@ -4215,8 +4153,40 @@
             </div>
           </div>
         </section>
+        <section id="finalremarks" class="section-padding gray-bg">
+          <div class="container text-center">
+            <h2 class="page-title">Final remarks</h2>
+          </div>
+          <div class="container text-center">
+            <div class="container">
+              <p class="max-width-900 large pb-30 text-justify">
+                The data used in this analysis has been obtained from the
+                <a
+                  href="https://www.kaggle.com/datasets/eoinamoore/historical-nba-data-and-player-box-scores"
+                  >Kaggle - NBA Dataset</a
+                >
+                and covers the period from the very beginning of the NBA up to
+                the end of the 2024-2025 season. All the code used for this
+                project can be found on the
+                <a href="https://github.com/jcllanu/nba-elo"
+                  >GitHub repository</a
+                >.
+              </p>
+              <p class="max-width-900 large pb-30 text-justify">
+                <strong>Disclaimer:</strong> This article is an opinion piece
+                proposing a method to objectively evaluate player performance.
+                Every effort has been made to analyze the results as objectively
+                as possible, although we all have inherent biases. All players
+                mentioned in this article, as well as many others not mentioned,
+                are stars, icons and legends of the league, and their legacy and
+                contributions to the sport of basketball are beyond any doubt.
+                We hope readers take this in the spirit intended.
+              </p>
+            </div>
+          </div>
+        </section>
 
-        <section id="people" class="section-padding gray-bg">
+        <section id="people" class="section-padding white-bg">
           <div class="container text-center">
             <h2 class="page-title">People</h2>
           </div>
@@ -4323,7 +4293,7 @@
           </div>
         </section>
 
-        <footer id="footer" class="footer section-padding white-bg">
+        <footer id="footer" class="footer section-padding gray-bg">
           <div class="container text-center">
             <p class="copyright">© 2025 Juan Carlos Llamas Núñez</p>
           </div>
