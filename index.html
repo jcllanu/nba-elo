@@ -267,9 +267,10 @@
                 time, this dynamic system produces a numerical rating that
                 reflects not only wins and losses but also the
                 <strong>context and difficulty of each match</strong>. This
-                enables players from different eras or tournaments to be
-                <strong>compared on a common scale</strong>. After every game,
-                the rating is adjusted using the following formula:
+                enables <strong>players from different eras</strong> or
+                tournaments to be <strong>compared on a common scale</strong>.
+                After every game, the rating is adjusted using the following
+                formula:
               </p>
 
               <p class="max-width-900 large pb-30 text-justify">
@@ -318,15 +319,16 @@
             <div class="container">
               <p class="max-width-900 large pb-30 text-justify">
                 With this foundation in mind, the first challenge in adapting
-                this system to basketball is that it is a
+                this system to basketball is that, unlike chess, basketball is a
                 <strong>team sport</strong>, and we aim to measure the
                 performance of an <strong>individual player</strong> rather than
                 the team as a whole. In chess, each game has a single winner and
                 loser, but in basketball, multiple players contribute
                 simultaneously and diversely to a single outcome. Additionally,
                 there is already extensive research and multiple examples that
-                use ELO to rank teams in different competitions: NBA, football,
-                soccer... However, our goal is to rank players, not teams.
+                use ELO to rank teams in different competitions and sports: NBA,
+                football, soccer... However,
+                <strong>our goal is to rank players, not teams</strong>.
               </p>
               <p class="max-width-900 large pb-30 text-justify">
                 To address this, we start by defining a
@@ -339,11 +341,12 @@
                 mathematical sense: not all players contribute equally to the
                 outcome of a game. A starter playing 36 minutes has far more
                 influence than a bench player with 5 minutes on the court.
-                Weighting by minutes ensures that the team rating truly reflects
-                each player’s contribution, rather than treating all
-                participants as equal, which would distort the expected outcome
-                and undermine the reliability of the ELO updates for individual
-                players. Formally,
+                <strong
+                  >Weighting by minutes ensures that the team rating truly
+                  reflects each player’s contribution</strong
+                >, rather than treating all participants as equal, which would
+                distort the expected outcome and undermine the reliability of
+                the ELO updates for individual players. Formally,
               </p>
               <p class="max-width-900 large pb-30 text-justify">
                 $$ R_{team} = \frac{\sum_{i=1}^N R_i \cdot m_i}{\sum_{i=1}^N
@@ -361,8 +364,8 @@
                   game
                 </li>
                 <li>
-                  \(N\) is the total number of players who participated in the
-                  game
+                  \(N\) represents the total number of players from the teams
+                  who participated in the game
                 </li>
               </ul>
 
@@ -555,14 +558,16 @@
                 A and Team B, respectively.
               </p>
               <p class="max-width-900 large pb-30 text-justify">
-                Let’s give some intuition on the formula. The expected score
-                \(E\) essentially represents the probability that a team will
-                win based on its rating relative to the opponent. If two teams
-                have identical ratings, \(E=50\%\), meaning each team has an
-                equal chance of winning. As the rating difference grows, \(E\)
-                shifts closer to \(100\%\) for the stronger team and closer to
-                \(0\%\) for the weaker team, reflecting an increasingly lopsided
-                expected outcome.
+                Let’s give some intuition on the formula.
+                <strong
+                  >The expected score \(E\) essentially represents the
+                  probability that a team will win based on its rating relative
+                  to the opponent</strong
+                >. If two teams have identical ratings, then \(E=50\%\), meaning
+                each team has an equal chance of winning. As the rating
+                difference grows, \(E\) shifts closer to \(100\%\) for the
+                stronger team and closer to \(0\%\) for the weaker team,
+                reflecting an increasingly lopsided expected outcome.
               </p>
 
               <p class="max-width-900 large pb-30 text-justify">
@@ -585,12 +590,15 @@
                 Continuing with the previous example of the Finals game between
                 the Los Angeles Lakers and the Boston Celtics, in which we had
                 calculated Boston’s rating as <strong>\(1,267.75\)</strong> and
-                Los Angeles’ rating as <strong>\(1,296.14\)</strong>, the
-                formula above tells us that the probability of Boston winning
-                was <strong>\(45.9\%\)</strong>, which gives
+                Los Angeles’ rating as <strong>\(1,296.14\)</strong>. Using the
+                formula above, the probability of Boston winning was
+                <strong>\(45.9\%\)</strong>, which gives
                 <strong>\(54.1\%\)</strong> chances of Los Angeles winning. As
-                expected, a higher rating corresponds to a greater win
-                expectancy.
+                expected,
+                <strong
+                  >a higher rating corresponds to a greater win
+                  expectancy</strong
+                >.
               </p>
               <p class="max-width-900 large pb-30 text-justify">
                 Once the expected outcome \(E_{team}\) is calculated, we update
@@ -738,13 +746,21 @@
                     <tbody>
                       <tr>
                         <td class="center-col">Win</td>
-                        <td class="center-col">Rating increases ‘a lot’</td>
-                        <td class="center-col">Rating increases ‘a little’</td>
+                        <td class="center-col">
+                          Rating increases <i>a lot</i>
+                        </td>
+                        <td class="center-col">
+                          Rating increases <i>a little</i>
+                        </td>
                       </tr>
                       <tr>
                         <td class="center-col">Loss</td>
-                        <td class="center-col">Rating decreases ‘a little’</td>
-                        <td class="center-col">Rating decreases ‘a lot’</td>
+                        <td class="center-col">
+                          Rating decreases <i>a little</i>
+                        </td>
+                        <td class="center-col">
+                          Rating decreases <i>a lot</i>
+                        </td>
                       </tr>
                     </tbody>
                   </table>
@@ -767,16 +783,16 @@
                       alt="We believe Warriors"
                     />
                     <figcaption>
-                      <strong>Figure 6.-</strong> In the First Round of the
-                      Western Conference 2007 playoffs, the eighth seed Golden
-                      State Warriors pulled off one of the biggest upsets in
-                      league history against the first seed Dallas Mavericks.
-                      Although the ELO point difference at the start of the
-                      series was \(236.47\) in favor of Dallas, the “We Believe”
-                      Warriors won the series in six games against the Dirk
-                      Nowitzki-led Mavericks. Nowitzki lost a total of \(84.30\)
-                      ELO points in the series, while Baron Davis increased his
-                      ELO in \(89.90\) points.
+                      <strong>Figure 6.-</strong> In the First Round of the 2007
+                      Western Conference Playoffs, the eighth seed Golden State
+                      Warriors pulled off one of the biggest upsets in league
+                      history against the first seed Dallas Mavericks. Although
+                      the ELO point difference at the start of the series was
+                      \(236.47\) in favor of Dallas, the “We Believe” Warriors
+                      won the series in six games against the Dirk Nowitzki-led
+                      Mavericks. Nowitzki lost a total of \(84.30\) ELO points
+                      in the series, while Baron Davis increased his ELO in
+                      \(89.90\) points.
                     </figcaption>
                   </figure>
                 </div>
@@ -861,16 +877,17 @@
                 explanation, let’s calculate the updated ELO rankings for the
                 players who participated in Game 6 of the 1985 NBA Finals, which
                 ended with the Los Angeles Lakers winning \(100\)–\(111\). Let’s
-                start by updating the ELO rankings of the Boston players. Since
-                the Boston Celtics lost the game, their \(S\) value is 0. The
+                start by updating the
+                <strong>ELO rankings of the Boston players</strong>. Since the
+                Boston Celtics lost the game, their \(S\) value is 0. The
                 percentage \(E\) had already been calculated and was \(45.9\%\).
                 Since this was a playoff game, the \(K\) parameter is \(32\).
                 Finally, the minutes played determine the adjustment for each
                 player. For reference, for a player who played \(36\) minutes,
                 the ELO point decrease is \(14.70\). In the following table, we
-                show, for each Boston Celtics player, their minutes played, the
-                ELO rating before the game, the ELO change, and finally the new
-                ELO rating.
+                show, for each Boston Celtics player, their minutes played,
+                their ELO rating before the game, the ELO change, and finally
+                their new ELO rating.
               </p>
               <div
                 class="row"
@@ -957,11 +974,12 @@
                 Finally, the minutes played depend on each individual player. As
                 a reference point, for a Lakers player who played \(36\)
                 minutes, their ELO increase would be \(14.70\) points. It’s
-                important to note that this system guarantees a zero-sum
-                structure: the total ELO lost by the players on one team is
-                gained by the players on the other. The following table shows
-                the ELO rating before and after the game, along with the ELO
-                gain and the minutes played by each Lakers player.
+                important to note that
+                <strong>this system guarantees a zero-sum structure</strong>:
+                the total ELO lost by the players on one team is gained by the
+                players on the other. The following table shows the ELO rating
+                before and after the game, along with the ELO gain and the
+                minutes played by each Lakers player.
               </p>
               <div
                 class="row"
@@ -1054,15 +1072,16 @@
               </div>
               <p class="max-width-900 large pb-30 text-justify"></p>
               <p class="max-width-900 large pb-30 text-justify">
-                As shown in the tables above, the change in ELO depends on court
-                time. For example, James Worthy, who played \(45\) minutes, sees
-                an ELO increase of \(18.37\) points, while Bob McAdoo, who
-                played only \(10\) minutes, gains just \(4.08\) ELO points. This
-                is consistent with the goal of rewarding real impact on the
-                outcome of the game. Similarly, Dennis Johnson, who played
-                \(43\) minutes, experiences a larger ELO decrease (\(-17.55\)
-                ELO points) than Greg Kite, who played only \(11\) minutes and
-                lost \(4.49\) ELO points.
+                As shown in the tables above,
+                <strong>the change in ELO depends on court time</strong>. For
+                example, James Worthy, who played \(45\) minutes, sees an ELO
+                increase of \(18.37\) points, while Bob McAdoo, who played only
+                \(10\) minutes, gains just \(4.08\) ELO points. This is
+                consistent with the goal of rewarding real impact on the outcome
+                of the game. Similarly, Dennis Johnson, who played \(43\)
+                minutes, experiences a larger ELO decrease (\(-17.55\) ELO
+                points) than Greg Kite, who played only \(11\) minutes and lost
+                \(4.49\) ELO points.
               </p>
               <p class="max-width-900 large pb-30 text-justify">
                 Looking at this from another perspective, if this had been a
@@ -1094,11 +1113,14 @@
                 validity, and highlighted its strengths for evaluating players
                 fairly and with proper context, obtaining the historical
                 evolution of each player’s ELO series becomes straightforward.
-                It’s only worth noting that the chosen base rating is 1000,
-                again inspired by chess. In other words, when a player enters
-                the league, their initial rating is 1000, and as they win or
-                lose games, this rating increases or decreases according to the
-                dynamic system described above. All of this allows us to bring a
+                It’s only worth noting that the chosen base rating is \(1000\),
+                again inspired by chess. In other words,
+                <strong
+                  >when a player enters the league, their initial rating is
+                  \(1000\)</strong
+                >, and as they win or lose games, this rating increases or
+                decreases according to the dynamic system described above. All
+                of this allows us to bring a
                 <strong
                   >rigorous and informed perspective to the never-ending debate
                   about who is the true NBA GOAT. From now on, greatness isn’t
@@ -1435,10 +1457,10 @@
                       </tr>
                     </tbody>
                   </table>
-                  <strong>Table 6.-</strong> Top 50 players ranked by the
-                  highest ELO rating achieved at any point in their careers.
                 </div>
               </div>
+              <strong>Table 6.-</strong> Top 50 players ranked by the highest
+              ELO rating achieved at any point in their careers.
 
               <p class="max-width-900 large pb-30 text-justify"></p>
               <div
@@ -1725,10 +1747,10 @@
                       </tr>
                     </tbody>
                   </table>
-                  <strong>Table 7.-</strong> Top 50 players ranked by the
-                  average ELO rating achieved throughout their careers.
                 </div>
               </div>
+              <strong>Table 7.-</strong> Top 50 players ranked by the average
+              ELO rating achieved throughout their careers.
 
               <p class="max-width-900 large pb-30 text-justify"></p>
               <div class="grid">
@@ -1762,7 +1784,7 @@
                 </div>
                 <div>
                   <iframe
-                    src="https://www.youtube.com/embed/Id2VuXpR3_8?si=NgpZ2u7WdfG2qFig"
+                    src="https://www.youtube.com/embed/rT8cRUesPA8?si=bEguLAd5fLoMg2z1"
                     title="YouTube video player"
                     frameborder="0"
                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
@@ -1864,11 +1886,12 @@
                 positions no one could have seen coming. Legends end up
                 shockingly high or surprisingly low, completely rewriting what
                 we thought we knew about their careers. To unpack it all, the
-                discussion is split into three parts: first, the biggest
-                surprises, where the data defies expectations; second, a
-                position-by-position breakdown to see how stars performed across
-                roles; and finally, what it all adds to the ever-heated GOAT
-                debate.
+                discussion is split into three parts: first,
+                <strong>the biggest surprises</strong>, where the data defies
+                expectations; second,
+                <strong>a position-by-position breakdown</strong> to see how
+                stars performed across roles; and finally, what it all adds to
+                the ever-heated <strong>GOAT debate</strong>.
               </p>
             </div>
           </div>
@@ -1893,17 +1916,18 @@
                 Clippers rose from irrelevance to a Western Conference
                 powerhouse, the Rockets peaked with him alongside Harden, the
                 young Thunder overperformed, laying the foundations for their
-                bright future, and the Suns jumped from lottery to the Finals.
-                He is the definition of a floor general—dictating tempo,
+                bright future, and the Suns jumped from the lottery to the
+                Finals. He is the definition of a floor general—dictating tempo,
                 organizing offense, and making teammates better—while
                 maintaining elite play over nearly two decades.
               </p>
               <p class="max-width-900 large pb-30 text-justify">
                 Vlade Divac’s influence was more subtle but equally meaningful.
-                Over his career, he maintained a regular season win percentage
-                above \(60\%\). He improved floor spacing, facilitated offense,
-                and created opportunities for teammates such as Chris Webber,
-                helping his teams overperform relative to expectations. Divac’s
+                Over his career, he maintained a
+                <strong>regular season win percentage above \(60\%\)</strong>.
+                He improved floor spacing, facilitated offense, and created
+                opportunities for teammates such as Chris Webber, helping his
+                teams overperform relative to expectations. Divac’s
                 contributions often went unnoticed in traditional statistics,
                 but an ELO-based system captures his
                 <strong
@@ -1914,39 +1938,47 @@
                 From an ELO perspective, the comparison is striking: in regular
                 season losses, Chris Paul’s and Vlade Divac's teams were on
                 average only \(18.40\) and \(21.31\) ELO points better than
-                their opponents. As a reference, that's far lower than the
-                average ELO advantage of \(133.15\), \(109.92\), and \(135.62\)
-                points for Bill Russell, Larry Bird, or Magic Johnson. In
-                regular season wins, Chris Paul’s teams were just \(94.00\)
+                their opponents. As a reference,
+                <strong>that's far lower than the average ELO advantage</strong>
+                of \(133.15\), \(109.92\), and \(135.62\) points
+                <strong>for Bill Russell, Larry Bird, or Magic Johnson</strong>.
+                In regular season wins, Chris Paul’s teams were just \(94.00\)
                 points better while this figure rises to \(103.67\) for Divac's
                 teams. In comparison, that's less than Wilt Chamberlain
                 (\(129.26\)) or Kareem Abdul-Jabbar (\(141.62\)). These numbers
                 illustrate how both players consistently exceeded expectations
-                with their teams. Together, these metrics highlight why both
-                Paul and Divac rank so highly.
+                with their teams. Together,
+                <strong
+                  >these metrics justify why both Paul and Divac rank so
+                  highly</strong
+                >.
               </p>
 
               <p class="max-width-900 large pb-30 text-justify">
-                It may be surprising not to see Kobe Bryant ranked near the top
+                <strong
+                  >It may be surprising not to see Kobe Bryant ranked near the
+                  top</strong
+                >
                 in these ELO metrics, especially since he is widely regarded as
                 a top-10 player of all time and has a résumé that includes
-                <strong> five NBA championships</strong>
-                and multiple MVP-level seasons. Many fans even include him in
-                the GOAT conversation due to his cultural impact and his
-                legendary winning mentality.
+                <strong>five NBA championships</strong>
+                and <strong>multiple MVP-level seasons</strong>. Many fans even
+                include him in the GOAT conversation due to his cultural impact
+                and his <strong>legendary winning mentality</strong>.
               </p>
               <p class="max-width-900 large pb-30 text-justify">
-                However, throughout most of his career, Kobe played on extremely
-                strong teams and was surrounded by other stars. His early titles
-                came while playing alongside Shaquille O’Neal, one of the most
-                dominant forces in NBA history, and later he benefited from
-                talented supporting casts built around him in Los Angeles. Since
-                ELO heavily values a player’s individual contribution on team
-                performance, being part of stacked rosters can limit how high a
-                player rises in these rankings. In fact, between 1998 and 2011
-                his team's were favored by \(119.88\) ELO points on average on
-                regular season games and \(62.72\) in playoff games, so his
-                expectations to win were high.
+                However, throughout most of his career,
+                <strong>Kobe played on extremely strong teams</strong> and was
+                surrounded by other stars. His early titles came while playing
+                alongside Shaquille O’Neal, one of the most dominant forces in
+                NBA history, and later he benefited from talented supporting
+                casts built around him in Los Angeles. Since ELO heavily values
+                a player’s individual contribution on team performance, being
+                part of stacked rosters can limit how high a player rises in
+                these rankings. In fact, between 1998 and 2011 his team's were
+                favored by \(119.88\) ELO points on average on regular season
+                games and \(62.72\) in playoff games, so his expectations to win
+                were high.
               </p>
               <p class="max-width-900 large pb-30 text-justify">
                 This context is reflected in Kobe’s ELO trajectory. His peak ELO
@@ -1954,13 +1986,15 @@
                 even further. In the final phase of his career, prolonged
                 injuries and less competitive Lakers teams pulled his numbers
                 down significantly. Unexpected playoff losses also hurt his
-                rating. For example, the 2004 NBA Finals defeat against the
-                Detroit Pistons heavily penalized his ELO because the Lakers
-                entered the series as clear favorites. Additionally, major
-                disappointments in later seasons—such as the 2012–13 campaign,
-                when he played alongside stars like Dwight Howard, Pau Gasol,
-                and Steve Nash—further affected his numbers, as injuries and
-                underperforming teams limited his impact.
+                rating. For example, the
+                <strong>2004 NBA Finals defeat</strong> against the Detroit
+                Pistons heavily penalized his ELO because the Lakers entered the
+                series as clear favorites. Additionally, major
+                <strong>disappointments in later seasons</strong>—such as the
+                2012–13 campaign, when he played alongside stars like Dwight
+                Howard, Pau Gasol, and Steve Nash—further affected his numbers,
+                as <strong>injuries</strong> and underperforming teams limited
+                his impact.
               </p>
               <p class="max-width-900 large pb-30 text-justify">
                 <strong>Kobe’s legacy remains enormous</strong>, but ELO
@@ -1989,26 +2023,34 @@
               <p class="max-width-900 large pb-30 text-justify"></p>
 
               <p class="max-width-900 large pb-30 text-justify">
-                Other notable absences include Wilt Chamberlain, Bill Russell,
-                and Oscar Robertson, who rank only 28th, 38th, and fall outside
-                the top 50 in peak ELO, and are also outside the top 50 in
-                average ELO. This is largely because the competition faced by
-                their teams was relatively weak, with average opponent ELOs of
-                just \(1,055.47\), \(1,040.98\), and \(1,053.06\), compared to
-                their own teams’ ELOs of \(1,144.67\), \(1,185.56\), and
-                \(1,111.35\), respectively. As a reference, the ELO of opposing
-                teams faced by Kevin Durant, David Robinson, and Scottie Pippen
-                is generally around \(1,070\)-\(1,080\). While this may not seem
-                like a huge gap, over the course of a long NBA career, it can
-                definitely make a significant difference.
+                Other notable absences include
+                <strong
+                  >Wilt Chamberlain, Bill Russell, and Oscar Robertson</strong
+                >, who rank only 28th, 38th, and fall outside the top 50 in peak
+                ELO, and are also outside the top 50 in average ELO. This is
+                largely because
+                <strong
+                  >the competition faced by their teams was relatively
+                  weak</strong
+                >, with average opponent ELOs of just \(1,055.47\),
+                \(1,040.98\), and \(1,053.06\), compared to their own teams’
+                ELOs of \(1,144.67\), \(1,185.56\), and \(1,111.35\),
+                respectively. As a reference, the ELO of opposing teams faced by
+                Kevin Durant, David Robinson, and Scottie Pippen is generally
+                around \(1,070\)-\(1,080\). While this may not seem like a huge
+                gap, over the course of a long NBA career, it can definitely
+                make a significant difference.
               </p>
               <p class="max-width-900 large pb-30 text-justify">
                 Finally, while there are many other surprising omissions and
                 unexpected rankings in the ELO lists, one that stands out in
-                particular is Allen Iverson. Despite his undeniable legacy and
-                profound cultural impact, Iverson’s lack of significant team
-                success—largely due to the absence of a strong supporting
-                cast—has prevented him from climbing higher in both peak and
+                particular is <strong>Allen Iverson</strong>. Despite his
+                <strong>undeniable legacy and profound cultural impact</strong>,
+                Iverson’s
+                <strong
+                  >lack of significant team success—largely due to the absence
+                  of a strong supporting cast</strong
+                >—has prevented him from climbing higher in both peak and
                 average ELO ratings. His case highlights how ELO not only
                 captures individual brilliance but also the critical influence
                 of team context and competitive environment on a player’s
@@ -2098,7 +2140,7 @@
                 surprising <strong>Jrue Holiday</strong> reaches 23rd in maximum
                 rating and 33rd in average. Meanwhile
                 <strong>Luka Dončić</strong> appears 32nd in peak but falls
-                outside the top 50 in average, and the current NBA MVP and NBA
+                outside the top 50 in average, and the reigning NBA MVP and NBA
                 Champion <strong>Shai Gilgeous-Alexander</strong> just makes the
                 top 50 in peak while missing the average list—signaling
                 significant promise, but an early career characterized by a
@@ -2383,9 +2425,11 @@
                 Chamberlain, Kobe Bryant, and Larry Bird begin to fade not
                 because they weren’t individually dominant, but because their
                 impact in team success comes short compared to that of our four
-                final candidates. These four players manage to appear in the top
-                five in both average career ELO and peak ELO simultaneously.
-                That level of true, sustained superiority is reserved for
+                final candidates. These four players manage to appear in the
+                <strong
+                  >top five in both average career ELO and peak ELO
+                  simultaneously</strong
+                >. That level of true, sustained superiority is reserved for
                 <strong>LeBron James</strong>, <strong>Michael Jordan</strong>,
                 <strong>Tim Duncan</strong>, and
                 <strong>Shaquille O’Neal</strong>. These are the only legends
@@ -2418,15 +2462,15 @@
               </div>
               <p class="max-width-900 large pb-30 text-justify"></p>
               <p class="max-width-900 large pb-30 text-justify">
-                From there, LeBron James takes the lead, as he ranks #1 in both
-                average ELO and peak ELO. He has achieved this while maintaining
-                exceptional performance throughout the longest meaningful prime
-                the sport has ever seen. But let's take a closer look at how
-                James builds his case for the NBA GOAT compared to the other
-                three candidates. To do so, the following tables show the
-                average ELO difference between the player's team and their
-                opponents in wins and losses, both in regular season and
-                playoffs.
+                From there, <strong>LeBron James takes the lead</strong>, as he
+                ranks #1 in both average ELO and peak ELO. He has achieved this
+                while maintaining exceptional performance throughout the longest
+                meaningful prime the sport has ever seen. But let's take a
+                closer look at how James builds his case for the NBA GOAT
+                compared to the other three candidates. To do so, the following
+                tables show the average ELO difference between the player's team
+                and their opponents in wins and losses, both in regular season
+                and playoffs.
               </p>
 
               <div
@@ -2503,11 +2547,12 @@
                 compared to their opponents, with roughly \(20\) fewer ELO
                 points than Jordan and Duncan and \(10\) fewer than Shaq. In
                 other words: although the teams of all four superstars were
-                typically favored in losses, Jordan’s were the least favored—and
-                while they were usually favored in wins as well, LeBron’s were
-                the least favored among the group. In the next table, we present
-                the same statistics but now focused exclusively on playoff
-                performance.
+                typically favored
+                <strong>in losses, Jordan’s were the least favored</strong>—and
+                while they were usually favored <strong>in wins</strong> as
+                well, <strong>LeBron’s were the least favored</strong> among the
+                group. In the next table, we present the same statistics but now
+                focused exclusively on playoff performance.
               </p>
               <div
                 class="row"
@@ -3385,8 +3430,11 @@
                 On the other hand, of the \(32\) series he won, in only \(4\) of
                 them his team was not the favorite. Additionally, the average
                 ELO advantage in his playoff series wins was \(90.31\) ELO
-                points. In fact, his team was the favorite in all of his playoff
-                series from 2000 until the Second Round of the 2006 Playoffs.
+                points. In fact,
+                <strong
+                  >his team was the favorite in all of his playoff series from
+                  2000 until the Second Round of the 2006 Playoffs</strong
+                >.
               </p>
               <p class="max-width-900 large pb-30 text-justify">
                 <strong
@@ -3786,10 +3834,12 @@
                 tremendous impact on the success of his teams. He earned
                 numerous individual awards and accolades, demonstrating both
                 consistency and excellence over his long and prolific career.
-                Yet, he still does not surpass LeBron in ELO rating. The
-                underlying reason is that the metric heavily values the ability
-                to pull off upsets and penalizes heavily being the one who gets
-                upset.
+                Yet, he still does not surpass LeBron in ELO rating.
+                <strong
+                  >The underlying reason is that the metric heavily values the
+                  ability to pull off upsets and penalizes heavily being the one
+                  who gets upset</strong
+                >.
               </p>
               <p class="max-width-900 large pb-30 text-justify">
                 <strong
@@ -4174,13 +4224,17 @@
               </p>
               <p class="max-width-900 large pb-30 text-justify">
                 <strong>Disclaimer:</strong> This article is an opinion piece
-                proposing a method to objectively evaluate player performance.
-                Every effort has been made to analyze the results as objectively
-                as possible, although we all have inherent biases. All players
-                mentioned in this article, as well as many others not mentioned,
-                are stars, icons and legends of the league, and their legacy and
-                contributions to the sport of basketball are beyond any doubt.
-                We hope readers take this in the spirit intended.
+                proposing
+                <strong
+                  >a method to objectively evaluate player performance</strong
+                >. Every effort has been made to analyze the results as
+                objectively as possible, although we all have inherent biases.
+                <strong
+                  >All players mentioned in this article, as well as many others
+                  not mentioned, are stars, icons and legends of the league, and
+                  their legacy and contributions to the sport of basketball are
+                  beyond any doubt</strong
+                >. We hope readers take this in the spirit intended.
               </p>
             </div>
           </div>
